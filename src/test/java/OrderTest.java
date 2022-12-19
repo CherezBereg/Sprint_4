@@ -1,5 +1,5 @@
-import PageObject.MainPage;
-import PageObject.OrderPages;
+import pageObject.MainPage;
+import pageObject.OrderPages;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -50,16 +50,16 @@ public class OrderTest {
     @Before
    public void beforeTests() {
         // Переход на тестируемый сайт
-        driver.get(objMainPage.url);
+        objMainPage.GoToTestingSite();
         // Ожидание прогрузки главной страницы
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         // Соглашаемся на куки
         objMainPage.pushCookieButtonYes();
     }
 
     @Test
     public void OrderWithUpButton() {
-        objOrderPage.pushUpOrder();
+        objMainPage.pushUpOrder();
 
         objOrderPage.addNewName(name);
         objOrderPage.addNewSurname(surname);
@@ -83,7 +83,7 @@ public class OrderTest {
 
     @Test
     public void OrderWithMiddleButton(){
-        objOrderPage.pushMiddleOrder();
+        objMainPage.pushMiddleOrder();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
 
         objOrderPage.addNewName(name);

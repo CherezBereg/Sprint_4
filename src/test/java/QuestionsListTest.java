@@ -1,4 +1,4 @@
-import PageObject.MainPage;
+import pageObject.MainPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -52,7 +52,7 @@ public class QuestionsListTest {
     @Before
     public void beforeQuestionsTest() {
         // Переход на тестируемый сайт
-        driver.get(objMainPage.url);
+        objMainPage.GoToTestingSite();
         // Ожидание прогрузки
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         // Соглашаемся на куки
